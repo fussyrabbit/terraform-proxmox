@@ -94,8 +94,9 @@ jobs:
       -
         name: Set application version
         id: set_version
-        uses: kvendingoldo/semver-action@v1.20
+        uses: kvendingoldo/semver-action@v1.20.6
         with:
+          init_version: 1.0.0
           enable_github_releases: true
           release_tag_prefix: "v"
           github_token: "${{ secrets.SEMVER_TOKEN }}"
