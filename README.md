@@ -1,6 +1,6 @@
 # Proxmox VM Terraform Module
 
-This Terraform module creates and manages virtual machines (VMs) on a Proxmox VE.
+Terraform module for creating and managing virtual machines (VMs) on a Proxmox VE.
 
 ## Requirements
 
