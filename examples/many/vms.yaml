@@ -1,0 +1,63 @@
+vms:
+
+  nginx:
+    count: 1
+    name: "d-nginx"
+    resources:
+      cores: 2
+      memory: 1024
+    disks:
+      - type: "cloudinit"
+        storage: "local-lvm"
+        slot: "ide0"
+      - type: "disk"
+        storage: "local-lvm"
+        size: "5G"
+        slot: "scsi0"
+        cache: "writethrough"
+    ip_address: "192.168.100.100"
+    tags:
+      - "nginx"
+      - "terraform"
+
+  haproxy:
+    count: 1
+    name: "d-haproxy"
+    resources:
+      cores: 1
+      memory: 1024
+    disks:
+      - type: "cloudinit"
+        storage: "local-lvm"
+        slot: "ide0"
+      - type: "disk"
+        storage: "local-lvm"
+        size: "5G"
+        slot: "scsi0"
+        cache: "writethrough"
+    ip_address: "192.168.100.102"
+    tags:
+      - "haproxy"
+      - "terraform"
+
+  talos:
+    count: 1
+    name: "d-talos"
+    clone_template: ""
+    resources:
+      cores: 2
+      memory: 2048
+    disks:
+      - type: "cdrom"
+        storage: "local"
+        slot: "ide0"
+        iso: "local:iso/talos-nocloud-amd64.iso"
+      - type: "disk"
+        storage: "local-lvm"
+        size: "10G"
+        slot: "scsi0"
+        cache: "writethrough"
+    ip_address: "192.168.100.103"
+    tags:
+      - "talos"
+      - "terraform"
